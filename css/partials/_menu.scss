@@ -1,0 +1,143 @@
+header{
+    
+    padding-top: 5px;
+   
+}
+.navbar{
+    
+   //max-width: 1440px;
+   padding: 0px 16px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    
+    li{
+        margin-left: 24px;
+    }
+
+    @include responsive(){
+        display: none;
+        
+        
+
+    }
+}
+
+.logo{
+   
+    max-width: 88px;
+
+    svg{
+        cursor: pointer;
+
+        path{
+            transition: 1.5s ease;
+        }
+    
+        &:hover{
+            path{
+                fill: $white-light;
+            }
+        }
+
+    }
+    
+}
+
+.nav-link{
+    display: inline-block;
+    
+
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 200;
+    color: $gray-3;
+    transition: .7s ease;
+
+    padding: 8px 16px;
+    position: relative;
+ 
+
+    /*Efeito teia*/
+    &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -45px;
+        left: 50%;
+        flex-direction: row;
+
+
+        transition: .7s ease; 
+        width: 3px;
+         /*Efeito começa em 0 px teia*/
+        height: 0px;
+        background: linear-gradient(180deg, #343131 20.13%, #767373 44.93%, #F5F2F3 69.45%);
+    }
+
+
+    &:hover{
+        color: $white-light;
+         
+        &::after{
+             /*Apos o Hover muda a altura para 40px dando o efeito teia*/
+            height: 40px;
+            
+        }
+        
+    }
+
+}
+
+.nav-sociais{
+    display: flex;
+    
+    overflow: hidden;
+    svg{
+        cursor: pointer;
+        
+        margin-left: 16px;
+        width: 20px;
+        
+
+        path{
+            transition: 0.7s ease;
+        }
+
+        &:hover{
+            path{
+                fill: $red-light;
+                transform: translate3d(0,-1px, 0);
+            }
+        }
+    }
+
+    @include responsive(){
+        display: none;
+    }
+}
+
+.hamburger{
+    display: none;
+
+    @include responsive(){
+        display: block;
+        
+
+       color: $white;
+        border-radius: 2px;
+    }
+}
